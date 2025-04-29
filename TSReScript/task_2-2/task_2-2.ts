@@ -1,5 +1,5 @@
-import { initPrintOut, printOut, newLine } from "../../lib/utils.ts";
 
+import { initPrintOut, printOut, newLine } from "../../lib/utils.ts";
 initPrintOut(document.getElementById("txtOut")!);
 
 printOut("----part 1----------------------------------------------------------------------");
@@ -9,6 +9,7 @@ const thirdParagraph: number = 6;;
 const part1Solution: number = firstParagraph + secondParagraph * thirdParagraph;
 printOut("The solution to part 1 is: " + part1Solution);
 printOut(newLine);
+
 printOut("----part 2----------------------------------------------------------------------");
 
 const inches: number = 2.54;
@@ -20,6 +21,7 @@ printOut("The answer to part 2 is: " + exactAnswer);
 printOut(newLine);
 
 printOut("----part 3----------------------------------------------------------------------");
+
 const secondsinMinute: number = 60;
 const minutesinHour: number = 60;
 const hoursinDay: number = 24;
@@ -28,7 +30,7 @@ const TotalHours: number = 3 * hoursinDay + 12;
 const hoursToMinutes: number = TotalHours * minutesinHour;
 const TotalSeconds: number = 45 / secondsinMinute;
 const TotalMinutes: number = hoursToMinutes + 14 + TotalSeconds;
-printOut("The answer to part 3 is: " + TotalMinutes.toFixed(2));
+printOut("The answer to part 3 is: " + TotalMinutes.toString());
 printOut(newLine);
 
 printOut("----part 4----------------------------------------------------------------------");
@@ -102,3 +104,28 @@ printOut("2500 < abcd is " + p7e.toString());
 printOut("arne !== thomas is " + p7f.toString());
 printOut("(2 === 5) === true is " + p7g.toString());
 printOut("(abcd > bcd) === false is " + p7h.toString());
+printOut(newLine);
+
+printOut("----part 8----------------------------------------------------------------------");
+let part8TaskA: string = "254";
+let part8TaskB: string = "57.23";
+let part8TaskC: string = "25 kroner";
+printOut("254 = " + Number(part8TaskA));
+printOut("57.23 = " + Number(part8TaskB));
+printOut("25 Kroner = " + parseInt(part8TaskC));
+printOut(newLine);
+
+printOut("----part 9----------------------------------------------------------------------");
+let r: number = (Math.random() * 360) + 1;
+
+printOut("(Math.random() * 360) + 1 = " + r.toFixed());
+printOut(newLine);
+
+printOut("----part 10----------------------------------------------------------------------");
+let totalDays: number = 131;
+
+let weeks: number = Math.floor(totalDays / 7);
+let days: number = totalDays % 7;
+
+printOut("131 days is " + weeks + " weeks and " + days + " days.");
+printOut(newLine);

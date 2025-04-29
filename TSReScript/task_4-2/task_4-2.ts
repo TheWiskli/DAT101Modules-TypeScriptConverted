@@ -140,8 +140,6 @@ function sortRandomValues(aValue1: number, aValue2: number): number{
     return aValue1 - aValue2;
 }
 
-
-
 const rngNumbers: number[] = [];
 
 for(let i: number = 0; i < 35; i++){
@@ -151,7 +149,54 @@ for(let i: number = 0; i < 35; i++){
 printOut("35 tilfeldige tall: " + rngNumbers.join(", "));
 
 rngNumbers.sort(sortRandomValues);
+printOut("Sortert i stigende rekkefølge: " + rngNumbers.join(", "));
+rngNumbers.reverse();
+printOut("Sortert i synkende rekkefølge: " + rngNumbers.join(", "));
+printOut(newLine);
 
 
 printOut("--- Part 9 --------------------------------------------------------------------------------------");
+function sortFrequency(aVerdi1: number, aVerdi2: number): number{
+    const verdi1 = frequency[aVerdi1];
+    const verdi2 = frequency[aVerdi2];
+    return verdi2 - verdi1;
+}
+
+const frequency: number[] = []
+
+for(let i: number = 0; i < rngNumbers.length; i++){
+    const number: number = rngNumbers[i];
+    if(frequency[number]){
+        frequency[number]++;
+    } else {
+        frequency[number] = 1;
+    }
+}
+let sortedKeys: number[] = Object.keys(frequency).map(Number);
+sortedKeys.sort(sortFrequency);
+
+printOut("Sortert etter frekvens: " + sortedKeys.join(", "));
+let svar: string = "";
+
+for(let i: number = 0; i < sortedKeys.length; i++){
+    const freqKey: number = sortedKeys[i];
+    const freqValue: number = frequency[freqKey];
+    svar += freqKey + ": " + freqValue + ", ";
+}
+
+printOut("Frekvens: " + svar);
+printOut(newLine);
+
 printOut("--- Part 10 --------------------------------------------------------------------------------------");
+
+const TwoDimentionalArray: string[][] = [];
+
+for(let rad: number = 0; rad < 5; rad++){
+    const felts: string[] = [];
+    for(let felt: number = 0; felt < 9; felt++){
+        const cell: string =+ rad + "," + felt;
+        felts.push(cell);
+    }
+    TwoDimentionalArray.push(felts);
+    printOut("Rad " + rad + ": " + felts.join(", "));
+}
